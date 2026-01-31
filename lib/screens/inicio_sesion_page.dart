@@ -10,6 +10,9 @@ class InicioSesionPage extends StatefulWidget {
 }
 
 class _InicioSesionPage extends State<InicioSesionPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +22,130 @@ class _InicioSesionPage extends State<InicioSesionPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: .center,
-          children: [Text('Inicio Sesión')],
+          children: [
+
+            SizedBox(height: 14),
+
+            Image.network("https://i.postimg.cc/9DN0WvGW/logo.png"),
+
+            Text(
+              "Gestiona todo al instante",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+
+            SizedBox(height: 14),
+
+            Text(
+              "Bienvenido de nuevo !!",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+
+            SizedBox(height: 14),
+
+            Text(
+              'Correo',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+
+            SizedBox(height: 14),
+
+            TextFormField(
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                hintText: 'Ingresa tu correo',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                filled: true,
+                fillColor: Colors.grey[50],
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa tu correo';
+                }
+                if (!value.contains('@')) {
+                  return 'Ingresa un correo válido';
+                }
+                return null;
+              },
+            ),
+
+            SizedBox(height: 20),
+
+            const Text(
+              'Contraseña',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+
+            SizedBox(height: 8),
+
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Ingrese su contraseña',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                filled: true,
+                fillColor: Colors.grey[50],
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa tu contraseña';
+                }
+                if (value.length < 6) {
+                  return 'La contraseña debe tener al menos 6 caracteres';
+                }
+                return null;
+              },
+            ),
+
+            SizedBox(height: 20),
+
+            Center(
+              child: TextButton(
+                onPressed: () {}, 
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.blue,
+                ),
+                child: const Text(
+                  '¿Olvidaste tu contraseña?',
+                  style: TextStyle(
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              )
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
