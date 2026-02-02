@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/configuracion_page.dart';
+import 'package:flutter_application_1/screens/gestion_mesas_page.dart';
+import 'package:flutter_application_1/screens/gestion_pedidos_page.dart';
 import 'package:flutter_application_1/screens/inicio_sesion_page.dart';
 import 'package:flutter_application_1/screens/menu_principal_page.dart';
+import 'package:flutter_application_1/screens/notificaciones_page.dart';
 import 'package:flutter_application_1/screens/pedido_menu_page.dart';
 import 'package:flutter_application_1/screens/pedido_mesas_page.dart';
+import 'package:flutter_application_1/screens/pedido_resumen_page.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
@@ -34,6 +39,36 @@ final GoRouter _router = GoRouter(
           path: 'pedido_menu',
           builder: (BuildContext context, GoRouterState state) {
             return const PedidoMenuPage();
+          },
+        ),
+        GoRoute(
+          path: 'pedido_resumen',
+          builder: (BuildContext context, GoRouterState state) {
+            return const PedidoResumenPage();
+          },
+        ),
+        GoRoute(
+          path: 'gestion_mesas',
+          builder: (BuildContext context, GoRouterState state) {
+            return const GestionMesasPage();
+          },
+        ),
+        GoRoute(
+          path: 'gestion_pedidos',
+          builder: (BuildContext context, GoRouterState state) {
+            return const GestionPedidosPage();
+          },
+        ),
+        GoRoute(
+          path: 'notificaciones',
+          builder: (BuildContext context, GoRouterState state) {
+            return const NotificacionesPage();
+          },
+        ),
+        GoRoute(
+          path: 'configuracion',
+          builder: (BuildContext context, GoRouterState state) {
+            return const ConfiguracionPage();
           },
         ),
       ],

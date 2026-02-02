@@ -31,8 +31,8 @@ class _InicioSesionPage extends State<InicioSesionPage> {
             Text(
               "Gestiona todo al instante",
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
                 color: Colors.black87,
               ),
             ),
@@ -42,9 +42,9 @@ class _InicioSesionPage extends State<InicioSesionPage> {
             Text(
               "Bienvenido de nuevo !!",
               style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+                color: Colors.grey,
               ),
             ),
 
@@ -130,6 +130,33 @@ class _InicioSesionPage extends State<InicioSesionPage> {
 
             SizedBox(height: 20),
 
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  context.go("/menu_principal");
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child:
+                Text(
+                  'INICIAR SESIÓN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 20),
+
             Center(
               child: TextButton(
                 onPressed: () {}, 
@@ -148,13 +175,13 @@ class _InicioSesionPage extends State<InicioSesionPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.go("/menu_principal");
         },
         tooltip: 'Iniciar Sesión',
         child: const Icon(Icons.arrow_outward),
-      ),
+      ), */
     );
   }
 }
